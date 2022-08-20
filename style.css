@@ -18,4 +18,11 @@ body{
     height: 250px;
     margin: 10px;
     background-color: aqua;
+    color:aqua;
+    transition: .6s;
+    user-select: none;
+}
+
+.cardFlip{
+    color:black;
 }
