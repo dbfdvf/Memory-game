@@ -2,7 +2,7 @@ const board = document.querySelector(".board");
 
 class Board {
   constructor() {}
-  static words = ["www", "ddd", "ddd", "hhh"];
+  static words = ["www", "ddd", "ddd", "www"];
   static cards;
 
   static generateBoard() {
@@ -20,7 +20,7 @@ class Board {
     this.cards = document.querySelectorAll(".card");
     this.cards.forEach(function (card) {
       card.addEventListener("click", function () {
-        card.classList.add("cardFlip");
+        card.classList.add("cardVisible");
         card.classList.add("match");
         flag++;
         if (flag == 2) {
@@ -35,21 +35,35 @@ class Board {
 class GameRules {
   static checkTwoCards() {
     let cardsMatch = document.querySelectorAll(".match");
-    function removeClasses() {
+    function removeClasses(flag) {
       cardsMatch.forEach((card) => {
         card.classList.remove("match");
-        card.classList.remove("cardFlip");
+        card.classList.remove("cardVisible");
+        if (flag == true) {
+          card.classList.add("guessed");
+        }
       });
     }
     if (cardsMatch[0].textContent == cardsMatch[1].textContent) {
-      console.log("Dobrze");
-      setTimeout(removeClasses, 1000);
-      cardsMatch.forEach((card) => {
-        card.parentElement.removeChild(card);
-      });
+      setTimeout(removeClasses, 1000, true);
+      setTimeout(this.checkWin, 1000);
     } else {
-      console.log("źle");
-      setTimeout(removeClasses, 1000);
+      setTimeout(removeClasses, 1000, false);
+    }
+  }
+
+  static checkWin() {
+    let cardsdArray = document.querySelectorAll(".card");
+    cardsdArray = [...cardsdArray];
+
+    let winBoolean = cardsdArray.every(checkGuessed);
+
+    if (winBoolean) {
+      alert("win");
+    }
+
+    function checkGuessed(card) {
+      return card.classList.contains("guessed");
     }
   }
 }

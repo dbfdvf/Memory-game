@@ -23,6 +23,10 @@ body{
     user-select: none;
 }
 
-.cardFlip{
+.cardVisible{
     color:black;
+}
+.guessed{
+    opacity: 0;
+    pointer-events: none;
 }
