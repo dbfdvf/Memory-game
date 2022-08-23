@@ -1,17 +1,118 @@
 const board = document.querySelector(".board");
-
 class Board {
   constructor() {}
-  static words = ["www", "ddd", "ddd", "www"];
+  static words4 = ["www", "www", "ddd", "ddd"];
+
+  static words16 = [
+    "www",
+    "www",
+    "ddd",
+    "ddd",
+    "aaa",
+    "aaa",
+    "bbb",
+    "bbb",
+    "ccc",
+    "ccc",
+    "vvv",
+    "vvv",
+    "nnn",
+    "nnn",
+    "kkk",
+    "kkk",
+  ];
+
+  static words32 = [
+    "www",
+    "www",
+    "ddd",
+    "ddd",
+    "aaa",
+    "aaa",
+    "bbb",
+    "bbb",
+    "ccc",
+    "ccc",
+    "vvv",
+    "vvv",
+    "nnn",
+    "nnn",
+    "kkk",
+    "kkk",
+    "qqq",
+    "qqq",
+    "eee",
+    "eee",
+    "rrr",
+    "rrr",
+    "ttt",
+    "ttt",
+    "yyy",
+    "yyy",
+    "uuu",
+    "uuu",
+    "iii",
+    "iii",
+    "ooo",
+    "ooo",
+  ];
+
   static cards;
 
-  static generateBoard() {
-    const wordsShuffle = this.words.sort(() => Math.random() - 0.5);
-    for (let i = 0; i < 4; i++) {
-      const div = document.createElement("div");
-      div.textContent = wordsShuffle[i];
-      div.classList.add("card");
-      board.appendChild(div);
+  static setSettings() {
+    const radioSelected = document.querySelector(
+      'input[name="difficulty"]:focus'
+    ).value;
+    Board.generateBoard(radioSelected);
+  }
+
+  static generateBoard(radioSelected = "medium") {
+    const cardsRemove = document.querySelectorAll(".card");
+    cardsRemove.forEach((card) => {
+      card.parentNode.removeChild(card);
+    });
+    console.log(radioSelected);
+    if (radioSelected == "easy") {
+      const wordsShuffle = this.words4.sort(() => Math.random() - 0.5);
+      for (let i = 0; i < 4; i++) {
+        const div = document.createElement("div");
+        div.textContent = wordsShuffle[i];
+        div.classList.add("card");
+        board.appendChild(div);
+      }
+      board.className = "";
+      board.classList.add("board");
+      board.classList.add("boardEasy");
+      Board.addMechanicsToCard();
+    }
+
+    if (radioSelected == "medium") {
+      const wordsShuffle = this.words16.sort(() => Math.random() - 0.5);
+      for (let i = 0; i < 16; i++) {
+        const div = document.createElement("div");
+        div.textContent = wordsShuffle[i];
+        div.classList.add("card");
+        board.appendChild(div);
+      }
+      board.className = "";
+      board.classList.add("board");
+      board.classList.add("boardMedium");
+      Board.addMechanicsToCard();
+    }
+
+    if (radioSelected == "hard") {
+      const wordsShuffle = this.words32.sort(() => Math.random() - 0.5);
+      for (let i = 0; i < 32; i++) {
+        const div = document.createElement("div");
+        div.textContent = wordsShuffle[i];
+        div.classList.add("card");
+        div.classList.add("cardHard");
+        board.appendChild(div);
+      }
+      board.className = "";
+      board.classList.add("board");
+      board.classList.add("boardHard");
+      Board.addMechanicsToCard();
     }
   }
 
@@ -67,6 +168,11 @@ class GameRules {
     }
   }
 }
+
+const inputs = document.querySelectorAll("input");
+inputs.forEach((input) => {
+  input.addEventListener("focus", Board.setSettings);
+});
 
 Board.generateBoard();
 Board.addMechanicsToCard();

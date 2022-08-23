@@ -6,27 +6,72 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 .board{
     display: flex;
     flex-wrap: wrap;
+
+    background-color: yellow;
+    padding: 10px;
+}
+.boardEasy{
+    width: 410px;
+    height: 410px;
+}
+.boardMedium{
+    width: 800px;
+    height: 800px;
+}
+.boardHard{
+    width: 1600px;
+    height: 800px;
 }
 .card{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250px;
-    height: 250px;
+    width: 175px;
+    height: 175px;
     margin: 10px;
     background-color: aqua;
     color:aqua;
     transition: .6s;
     user-select: none;
 }
-
+.cardHard{
+    width: 177.5px;
+    height:170px;
+}
 .cardVisible{
     color:black;
 }
 .guessed{
     opacity: 0;
     pointer-events: none;
+}
+.settings{
+    position: absolute;
+    right:40px;
+    top:40px;
+    background-color: brown;
+    padding: 30px;
+}
+h3{
+    padding-bottom: 10px;
+}
+label,input{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+input{
+    text-align: center;
+}
+#submit{
+    display: block;
+    margin: 0 auto;
 }
