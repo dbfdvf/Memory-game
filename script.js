@@ -1,60 +1,65 @@
 const board = document.querySelector(".board");
 class Board {
   constructor() {}
-  static words4 = ["www", "www", "ddd", "ddd"];
-
-  static words16 = [
-    "www",
-    "www",
-    "ddd",
-    "ddd",
-    "aaa",
-    "aaa",
-    "bbb",
-    "bbb",
-    "ccc",
-    "ccc",
-    "vvv",
-    "vvv",
-    "nnn",
-    "nnn",
-    "kkk",
-    "kkk",
+  static images4 = [
+    "img/paul.jpg",
+    "img/paul.jpg",
+    "img/leto2.jpg",
+    "img/leto2.jpg",
   ];
 
-  static words32 = [
-    "www",
-    "www",
-    "ddd",
-    "ddd",
-    "aaa",
-    "aaa",
-    "bbb",
-    "bbb",
-    "ccc",
-    "ccc",
-    "vvv",
-    "vvv",
-    "nnn",
-    "nnn",
-    "kkk",
-    "kkk",
-    "qqq",
-    "qqq",
-    "eee",
-    "eee",
-    "rrr",
-    "rrr",
-    "ttt",
-    "ttt",
-    "yyy",
-    "yyy",
-    "uuu",
-    "uuu",
-    "iii",
-    "iii",
-    "ooo",
-    "ooo",
+  static images16 = [
+    "img/paul.jpg",
+    "img/paul.jpg",
+    "img/leto2.jpg",
+    "img/leto2.jpg",
+    "img/baron.jpg",
+    "img/baron.jpg",
+    "img/idaho.jpg",
+    "img/idaho.jpg",
+    "img/Jessica.jpeg",
+    "img/Jessica.jpeg",
+    "img/leto.jpeg",
+    "img/leto.jpeg",
+    "img/stilgar.jpg",
+    "img/stilgar.jpg",
+    "img/thufir.jpeg",
+    "img/thufir.jpeg",
+  ];
+
+  static images32 = [
+    "img/paul.jpg",
+    "img/paul.jpg",
+    "img/leto2.jpg",
+    "img/leto2.jpg",
+    "img/baron.jpg",
+    "img/baron.jpg",
+    "img/idaho.jpg",
+    "img/idaho.jpg",
+    "img/Jessica.jpeg",
+    "img/Jessica.jpeg",
+    "img/leto.jpeg",
+    "img/leto.jpeg",
+    "img/stilgar.jpg",
+    "img/stilgar.jpg",
+    "img/thufir.jpeg",
+    "img/thufir.jpeg",
+    "img/Alia.jpg",
+    "img/Alia.jpg",
+    "img/chani.jpg",
+    "img/chani.jpg",
+    "img/hwi.jpg",
+    "img/hwi.jpg",
+    "img/miles.jpg",
+    "img/miles.jpg",
+    "img/moneo.jpg",
+    "img/moneo.jpg",
+    "img/odrade.jpg",
+    "img/odrade.jpg",
+    "img/Shaddam.jpg",
+    "img/Shaddam.jpg",
+    "img/Gurney.jpg",
+    "img/Gurney.jpg",
   ];
 
   static cards;
@@ -73,12 +78,14 @@ class Board {
     });
     console.log(radioSelected);
     if (radioSelected == "easy") {
-      const wordsShuffle = this.words4.sort(() => Math.random() - 0.5);
+      const imagesShuffle = this.images4.sort(() => Math.random() - 0.5);
       for (let i = 0; i < 4; i++) {
         const div = document.createElement("div");
-        div.textContent = wordsShuffle[i];
+        const img = document.createElement("img");
+        img.src = imagesShuffle[i];
         div.classList.add("card");
         board.appendChild(div);
+        div.appendChild(img);
       }
       board.className = "";
       board.classList.add("board");
@@ -87,12 +94,14 @@ class Board {
     }
 
     if (radioSelected == "medium") {
-      const wordsShuffle = this.words16.sort(() => Math.random() - 0.5);
+      const imagesShuffle = this.images16.sort(() => Math.random() - 0.5);
       for (let i = 0; i < 16; i++) {
         const div = document.createElement("div");
-        div.textContent = wordsShuffle[i];
+        const img = document.createElement("img");
+        img.src = imagesShuffle[i];
         div.classList.add("card");
         board.appendChild(div);
+        div.appendChild(img);
       }
       board.className = "";
       board.classList.add("board");
@@ -101,13 +110,14 @@ class Board {
     }
 
     if (radioSelected == "hard") {
-      const wordsShuffle = this.words32.sort(() => Math.random() - 0.5);
+      const imagesShuffle = this.images32.sort(() => Math.random() - 0.5);
       for (let i = 0; i < 32; i++) {
         const div = document.createElement("div");
-        div.textContent = wordsShuffle[i];
+        const img = document.createElement("img");
+        img.src = imagesShuffle[i];
         div.classList.add("card");
-        div.classList.add("cardHard");
         board.appendChild(div);
+        div.appendChild(img);
       }
       board.className = "";
       board.classList.add("board");
@@ -118,14 +128,34 @@ class Board {
 
   static addMechanicsToCard() {
     let flag = 0;
-    this.cards = document.querySelectorAll(".card");
-    this.cards.forEach(function (card) {
-      card.addEventListener("click", function () {
-        card.classList.add("cardVisible");
-        card.classList.add("match");
+    const cards = document.querySelectorAll(".card");
+    const images = document.querySelectorAll("img");
+    images.forEach((image) => {
+      image.addEventListener("click", function () {
+        image.classList.add("opacity");
+        image.classList.add("match");
         flag++;
+      });
+    });
+    //MOZE NIE POTRZEBNE
+    cards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        card.classList.add("matchCard");
+        card.classList.add("nonClickable");
+        //flag++;
         if (flag == 2) {
+          //this.cards = document.querySelectorAll(".card");
+          cards.forEach((card) => {
+            card.classList.add("nonClickable");
+          });
           GameRules.checkTwoCards();
+          function removeClass() {
+            //this.cards = document.querySelectorAll(".card");
+            cards.forEach(function (card) {
+              card.classList.remove("nonClickable");
+            });
+          }
+          setTimeout(removeClass, 1000);
           flag = 0;
         }
       });
@@ -135,17 +165,24 @@ class Board {
 
 class GameRules {
   static checkTwoCards() {
-    let cardsMatch = document.querySelectorAll(".match");
+    let imagesMatch = document.querySelectorAll(".match");
+    let cardsMatch = document.querySelectorAll(".matchCard");
+    console.log(cardsMatch);
     function removeClasses(flag) {
+      imagesMatch.forEach((img) => {
+        img.classList.remove("match");
+        //img.classList.remove("cardVisible");
+        img.classList.remove("opacity");
+      });
       cardsMatch.forEach((card) => {
-        card.classList.remove("match");
-        card.classList.remove("cardVisible");
+        card.classList.remove("matchCard");
         if (flag == true) {
+          card.classList.remove("match");
           card.classList.add("guessed");
         }
       });
     }
-    if (cardsMatch[0].textContent == cardsMatch[1].textContent) {
+    if (imagesMatch[0].src == imagesMatch[1].src) {
       setTimeout(removeClasses, 1000, true);
       setTimeout(this.checkWin, 1000);
     } else {
