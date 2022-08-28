@@ -91,6 +91,7 @@ class Board {
       board.classList.add("board");
       board.classList.add("boardEasy");
       Board.addMechanicsToCard();
+      Board.preview(500);
     }
 
     if (radioSelected == "medium") {
@@ -107,6 +108,7 @@ class Board {
       board.classList.add("board");
       board.classList.add("boardMedium");
       Board.addMechanicsToCard();
+      Board.preview(1000);
     }
 
     if (radioSelected == "hard") {
@@ -123,7 +125,31 @@ class Board {
       board.classList.add("board");
       board.classList.add("boardHard");
       Board.addMechanicsToCard();
+      Board.preview(2000);
     }
+  }
+
+  static preview(time) {
+    const cards = document.querySelectorAll(".card");
+    const imgs = document.querySelectorAll("img");
+
+    cards.forEach((card) => {
+      card.classList.add("nonClickable");
+    });
+    imgs.forEach((img) => {
+      img.classList.add("opacity");
+    });
+
+    function stopPreview() {
+      cards.forEach((card) => {
+        card.classList.remove("nonClickable");
+      });
+      imgs.forEach((img) => {
+        img.classList.remove("opacity");
+      });
+    }
+
+    setTimeout(stopPreview, time);
   }
 
   static addMechanicsToCard() {
