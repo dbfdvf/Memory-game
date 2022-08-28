@@ -63,6 +63,7 @@ class Board {
   ];
 
   static cards;
+  static counter;
 
   static setSettings() {
     const radioSelected = document.querySelector(
@@ -76,7 +77,7 @@ class Board {
     cardsRemove.forEach((card) => {
       card.parentNode.removeChild(card);
     });
-    console.log(radioSelected);
+
     if (radioSelected == "easy") {
       const imagesShuffle = this.images4.sort(() => Math.random() - 0.5);
       for (let i = 0; i < 4; i++) {
@@ -129,6 +130,19 @@ class Board {
     }
   }
 
+  static updateTime() {
+    clearInterval(this.counter);
+
+    let seconds = 0;
+    const secondsH2 = document.querySelector(".seconds");
+    //secondsH2.textContent = "Time: " + seconds;
+    this.counter = setInterval(() => {
+      seconds += 1;
+      console.log(seconds);
+      secondsH2.textContent = "Time: " + seconds + "  sec";
+    }, 1000);
+  }
+
   static preview(time) {
     const cards = document.querySelectorAll(".card");
     const imgs = document.querySelectorAll("img");
@@ -150,12 +164,15 @@ class Board {
     }
 
     setTimeout(stopPreview, time);
+    setTimeout(this.updateTime, time);
   }
 
   static addMechanicsToCard() {
+    let moves = 0;
     let flag = 0;
     const cards = document.querySelectorAll(".card");
     const images = document.querySelectorAll("img");
+    const movesH2 = document.querySelector(".moves");
     images.forEach((image) => {
       image.addEventListener("click", function () {
         image.classList.add("opacity");
@@ -168,6 +185,8 @@ class Board {
       card.addEventListener("click", function () {
         card.classList.add("matchCard");
         card.classList.add("nonClickable");
+        moves++;
+        movesH2.textContent = "Moves: " + moves;
         //flag++;
         if (flag == 2) {
           //this.cards = document.querySelectorAll(".card");

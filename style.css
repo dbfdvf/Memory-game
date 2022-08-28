@@ -9,13 +9,12 @@ body{
 .wrap{
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 100vh;
+    position: relative;
 }
 .board{
     display: flex;
     flex-wrap: wrap;
-
     background-color: yellow;
     padding: 10px;
 }
@@ -78,8 +77,6 @@ input{
 .nonClickable{
     pointer-events: none;
 }
-
-
 img{
     opacity: 0;
     width: 100%;
@@ -89,3 +86,11 @@ img{
 .opacity{
     opacity: 1;
 }
+.stats{
+    padding:30px 10px 30px;
+}
+.statsDiv{
+    display: flex;
+    justify-content: center;
+}
+   
