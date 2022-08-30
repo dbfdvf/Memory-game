@@ -255,6 +255,20 @@ const inputs = document.querySelectorAll("input");
 inputs.forEach((input) => {
   input.addEventListener("focus", Board.setSettings);
 });
+const settingsButton = document.querySelector(".gear");
+const settingsMenu = document.querySelector(".settings");
+settingsButton.addEventListener("click", function () {
+  settingsMenu.classList.toggle("hidden");
+});
+const closeButton = document.querySelector(".closeButton");
+closeButton.addEventListener("click", function () {
+  settingsMenu.classList.add("hidden");
+});
+const resetButton = document.querySelector(".resetButton");
+resetButton.addEventListener("click", function () {
+  Board.generateBoard();
+  settingsMenu.classList.add("hidden");
+});
 
 Board.generateBoard();
 Board.addMechanicsToCard();

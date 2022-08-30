@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <img src="img/iconmonstr-gear-1-240.png" alt="gear" class="gear">
     <div class="statsDiv">
         <h2 class="moves stats">Moves: 0</h2>
         <h2 class="seconds stats">Time: 0 sec</h2>
@@ -17,7 +18,7 @@
     <div class="wrap">
         <div class="board">
         </div>
-        <div class="settings">
+        <div class="settings hidden">
             <h3>Difficulty level:</h3>
             <form>
                 <input type="radio" value="easy" id="easy" name="difficulty">
@@ -27,6 +28,10 @@
                 <input type="radio" value="hard" id="hard" name="difficulty">
                 <label for="hard">Hard</label><br>
             </form>
+            <div class="buttonRow">
+                <button class="buttonSettings closeButton">Close</button>
+                <button class="buttonSettings resetButton">Reset</button>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
