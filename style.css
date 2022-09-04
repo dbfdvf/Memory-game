@@ -19,7 +19,7 @@ background-size: cover;
 .board{
     display: flex;
     flex-wrap: wrap;
-    background-color: yellow;
+    background-color: rgba(158, 158, 16, 0.719);
     padding: 10px;
 }
 .boardEasy{
@@ -39,8 +39,11 @@ background-size: cover;
     justify-content: center;
     align-items: center;
     margin: 10px;
-    background-color: aqua;
-    color:aqua;
+    /*background-color: aqua;*/
+    background-image: url("img/dune.png");
+    background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
     transition: .6s;
     user-select: none;
     width: 177.5px;
