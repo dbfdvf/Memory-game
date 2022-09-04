@@ -85,6 +85,7 @@ class Board {
         const img = document.createElement("img");
         img.src = imagesShuffle[i];
         div.classList.add("card");
+        div.classList.add("cardEasy");
         board.appendChild(div);
         div.appendChild(img);
       }
@@ -102,6 +103,7 @@ class Board {
         const img = document.createElement("img");
         img.src = imagesShuffle[i];
         div.classList.add("card");
+        div.classList.add("cardMedium");
         board.appendChild(div);
         div.appendChild(img);
       }
@@ -119,6 +121,7 @@ class Board {
         const img = document.createElement("img");
         img.src = imagesShuffle[i];
         div.classList.add("card");
+        div.classList.add("cardHard");
         board.appendChild(div);
         div.appendChild(img);
       }

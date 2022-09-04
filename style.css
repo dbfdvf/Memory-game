@@ -5,12 +5,16 @@
 }
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url("img/arrakis.jpg");
+    background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 }
 .wrap{
     display: flex;
     justify-content: center;
-    height: 100vh;
-
+    height: calc(90vh - 20px);
+    margin-top: 20px;
 }
 .board{
     display: flex;
@@ -19,32 +23,40 @@ body{
     padding: 10px;
 }
 .boardEasy{
-    width: 410px;
-    height: 410px;
+    width: 24vw;
+    height:24vw;
 }
 .boardMedium{
-    width: 800px;
-    height: 800px;
+    width: 40vw;
+    height: 40vw;
 }
 .boardHard{
-    width: 1600px;
-    height: 800px;
+    width:80vw;
+    height:40vw;
 }
 .card{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 175px;
-    height: 175px;
     margin: 10px;
     background-color: aqua;
     color:aqua;
     transition: .6s;
     user-select: none;
-}
-.cardHard{
     width: 177.5px;
     height:170px;
+}
+.cardEasy{
+    width: calc(12vw - 30px);
+    height: calc(12vw - 30px);
+}
+.cardMedium{
+    width: calc(10vw - 25px);
+    height: calc(10vw - 25px);
+}
+.cardHard{
+    width: calc(10vw - 22.5px);
+    height: calc(10vw - 25px);
 }
 .cardVisible{
     color:black;
@@ -129,6 +141,7 @@ img{
 .statsDiv{
     display: flex;
     justify-content: center;
+    height: 10vh;
 }
 .gear{
     width: 60px;
@@ -143,4 +156,187 @@ img{
     opacity: 0;
     visibility: hidden;
 }
-   
+@media (max-width:1300px){
+    .settings{
+        width:38vw;
+    }
+    .boardEasy{
+        width: 40vw;
+        height:40vw;
+    }
+    .boardMedium{
+        width: 50vw;
+        height: 50vw;
+    }
+    .boardHard{
+        width:90vw;
+        height:45vw;
+    }
+    .cardEasy{
+        width: calc(20vw - 30px);
+        height: calc(20vw - 30px);
+    }
+    .cardMedium{
+        width: calc(12.5vw - 25px);
+        height: calc(12.5vw - 25px);
+    }
+    .cardHard{
+        width: calc(11.25vw - 22.5px);
+        height: calc(11.25vw - 25px);
+    }
+    .stats{
+        font-size: 28px;
+    }
+    .gear{
+        width: 50px;
+        height: 50px;
+    }
+}
+@media (max-width:1100px){
+    .settings{
+        width:45vw;
+    }
+    .buttonSettings{
+        width: 12vw;
+        font-size: 22px;
+    }
+}
+@media (max-width:900px){
+    .settings{
+        width: 50vw;
+    }
+    .buttonSettings{
+        width: 14vw;
+        font-size: 24px;
+    }
+    .boardEasy{
+        width: 72vw;
+        height:72vw;
+    }
+    .boardMedium{
+        width: 80vw;
+        height: 80vw;
+    }
+    .boardHard{
+        width:60vw;
+        height:120vw;
+    }
+    .cardEasy{
+        width: calc(36vw - 30px);
+        height: calc(36vw - 30px);
+    }
+    .cardMedium{
+        width: calc(20vw - 25px);
+        height: calc(20vw - 25px);
+    }
+    .cardHard{
+        width: calc(15vw - 25px);
+        height: calc(15vw - 25px);
+    }
+    
+}
+@media (max-width: 770px){
+    .wrap{
+        height:110vh;
+        margin-bottom: 30px;
+    }
+    .boardHard{
+        width:70vw;
+        height:140vw;
+    }
+    .cardHard{
+        width: calc(17.5vw - 25px);
+        height: calc(17.5vw - 25px);
+    }
+}
+@media (max-width:650px){
+    .wrap{
+        height:110vh;
+    }
+    .settings{
+        width: 65vw;
+    }
+    .buttonSettings{
+        width: 20vw;
+    }
+    .boardMedium{
+        width: 90vw;
+        height: 90vw;
+    }
+    .boardHard{
+        width:80vw;
+        height:160vw;
+    }
+    .cardMedium{
+        width: calc(22.5vw - 25px);
+        height: calc(22.5vw - 25px);
+    }
+    .cardHard{
+        width: calc(20vw - 25px);
+        height: calc(20vw - 25px);
+    }
+}
+@media (max-width:520px){
+    .stats{
+        font-size: 20px;
+    }
+    .gear{
+        width: 40px;
+        height: 40px;
+        right: 10px;
+    }
+}
+@media (max-width:470px){
+    .settings{
+        width: 85vw;
+    }
+    .buttonSettings{
+        width: 28vw;
+    }
+    .boardMedium{
+        padding: 5px;
+        width: 95vw;
+        height: 95vw;
+    }
+    .boardHard{
+        padding: 5px;
+        width:95vw;
+        height:190vw;
+    }
+    .cardMedium{
+        margin: 5px;
+        width: calc(23.75vw - 12.5px);
+        height: calc(23.75vw - 12.5px);
+    }
+    .cardHard{
+        margin: 5px;
+        width: calc(23.75vw - 12.5px);
+        height: calc(23.75vw - 12.5px);
+    }
+}
+@media (max-width:400px){
+    .settings{
+        padding: 25px;
+    }
+    .stats{
+        font-size: 17px;
+    }
+}
+
+@media (max-width:1000px) and (orientation:landscape){
+   .wrap{
+    margin-top: 55px;
+    height: 115vh;
+   }
+}
+
+@media (max-width:900px) and (orientation:landscape){
+    .wrap{
+        height: 270vh;
+    }
+}
+@media (max-width:800px) and (orientation:landscape){
+    .wrap{
+        height: 300vh;
+    }
+}
