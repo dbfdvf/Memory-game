@@ -138,7 +138,6 @@ class Board {
 
     let seconds = 0;
     const secondsH2 = document.querySelector(".seconds");
-    //secondsH2.textContent = "Time: " + seconds;
     this.counter = setInterval(() => {
       seconds += 1;
       console.log(seconds);
@@ -183,22 +182,18 @@ class Board {
         flag++;
       });
     });
-    //MOZE NIE POTRZEBNE
     cards.forEach(function (card) {
       card.addEventListener("click", function () {
         card.classList.add("matchCard");
         card.classList.add("nonClickable");
         moves++;
         movesH2.textContent = "Moves: " + moves;
-        //flag++;
         if (flag == 2) {
-          //this.cards = document.querySelectorAll(".card");
           cards.forEach((card) => {
             card.classList.add("nonClickable");
           });
           GameRules.checkTwoCards();
           function removeClass() {
-            //this.cards = document.querySelectorAll(".card");
             cards.forEach(function (card) {
               card.classList.remove("nonClickable");
             });
@@ -219,7 +214,6 @@ class GameRules {
     function removeClasses(flag) {
       imagesMatch.forEach((img) => {
         img.classList.remove("match");
-        //img.classList.remove("cardVisible");
         img.classList.remove("opacity");
       });
       cardsMatch.forEach((card) => {

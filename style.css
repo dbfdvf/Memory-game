@@ -11,16 +11,18 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 .wrap{
+    position: relative;
     display: flex;
     justify-content: center;
-    height: calc(90vh - 20px);
+    min-height: calc(90vh - 20px);
     margin-top: 20px;
 }
 .board{
     display: flex;
     flex-wrap: wrap;
-    background-color: rgba(158, 158, 16, 0.719);
+
     padding: 10px;
+    margin-bottom: 60px;
 }
 .boardEasy{
     width: 24vw;
@@ -39,7 +41,6 @@ background-size: cover;
     justify-content: center;
     align-items: center;
     margin: 10px;
-    /*background-color: aqua;*/
     background-image: url("img/dune.png");
     background-position: center;
 background-repeat: no-repeat;
@@ -159,6 +160,54 @@ img{
     opacity: 0;
     visibility: hidden;
 }
+.characters{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    transition: .3s;
+}
+.characters:hover{
+    color: wheat;
+}
+.wrapList{
+    max-width: calc(60vw + 40px);
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+.titleList{
+    margin:30px 0;
+    text-align: center;
+    font-size: 36px;
+}
+.imgList{
+    opacity: 1;
+    width: 30vw;
+    height: 30vw;
+    margin: 10px;
+}
+.characterTitleList{
+    text-align: center;
+    margin: 20px 0;
+}
+.aList{
+    color: #0645ad;
+    text-decoration: none;
+}
+.aList:hover{
+    text-decoration: underline;
+}
+.backList{
+    position: absolute;
+    top:10px;
+    left: 10px;
+}
+p{
+    text-align: right;
+}
 @media (max-width:1300px){
     .settings{
         width:38vw;
@@ -236,13 +285,12 @@ img{
         width: calc(15vw - 25px);
         height: calc(15vw - 25px);
     }
+    .aList{
+        font-size: 22px;
+    }
     
 }
 @media (max-width: 770px){
-    .wrap{
-        height:110vh;
-        margin-bottom: 30px;
-    }
     .boardHard{
         width:70vw;
         height:140vw;
@@ -251,11 +299,11 @@ img{
         width: calc(17.5vw - 25px);
         height: calc(17.5vw - 25px);
     }
+    .aList{
+        font-size: 19px;
+    }
 }
 @media (max-width:650px){
-    .wrap{
-        height:110vh;
-    }
     .settings{
         width: 65vw;
     }
@@ -278,6 +326,19 @@ img{
         width: calc(20vw - 25px);
         height: calc(20vw - 25px);
     }
+    .wrapList{
+        max-width: calc(70vw + 40px);
+    }
+    .imgList {
+        width: 35vw;
+        height: 35vw;
+    }
+    .aList{
+        font-size: 18px;
+    }
+    .backList{
+        font-size: 15px;
+    }
 }
 @media (max-width:520px){
     .stats{
@@ -287,6 +348,15 @@ img{
         width: 40px;
         height: 40px;
         right: 10px;
+    }
+    .titleList{
+        font-size: 30px;
+    }
+    .aList{
+        font-size: 15px;
+    }
+    .backList{
+        font-size: 12px;
     }
 }
 @media (max-width:470px){
@@ -317,6 +387,21 @@ img{
         height: calc(23.75vw - 12.5px);
     }
 }
+@media (max-width:430px){
+    .titleList{
+        font-size: 28px;
+    }
+    .characterTitleList{
+        margin: 10px 0;
+        line-height: 14px;
+    }
+    .aList{
+        font-size: 14px;
+    }
+    .backList{
+        font-size: 11px;
+    }
+}
 @media (max-width:400px){
     .settings{
         padding: 25px;
@@ -324,22 +409,23 @@ img{
     .stats{
         font-size: 17px;
     }
+    .titleList{
+        font-size: 26px;
+    }
+    .characterTitleList{
+        line-height: 13px;
+    }
+    .aList{
+        font-size: 13px;
+    }
+    .backList{
+        font-size: 11px;
+    }
 }
 
 @media (max-width:1000px) and (orientation:landscape){
    .wrap{
     margin-top: 55px;
-    height: 115vh;
    }
 }
 
-@media (max-width:900px) and (orientation:landscape){
-    .wrap{
-        height: 270vh;
-    }
-}
-@media (max-width:800px) and (orientation:landscape){
-    .wrap{
-        height: 300vh;
-    }
-}
