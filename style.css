@@ -194,11 +194,7 @@ img{
     margin: 20px 0;
 }
 .aList{
-    color: #0645ad;
-    text-decoration: none;
-}
-.aList:hover{
-    text-decoration: underline;
+    color: rgba(15, 15, 15, 0.883);
 }
 .backList{
     position: absolute;
