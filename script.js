@@ -86,6 +86,7 @@ class Board {
         img.src = imagesShuffle[i];
         div.classList.add("card");
         div.classList.add("cardEasy");
+        img.classList.add("imgCard");
         board.appendChild(div);
         div.appendChild(img);
       }
@@ -104,6 +105,7 @@ class Board {
         img.src = imagesShuffle[i];
         div.classList.add("card");
         div.classList.add("cardMedium");
+        img.classList.add("imgCard");
         board.appendChild(div);
         div.appendChild(img);
       }
@@ -122,6 +124,7 @@ class Board {
         img.src = imagesShuffle[i];
         div.classList.add("card");
         div.classList.add("cardHard");
+        img.classList.add("imgCard");
         board.appendChild(div);
         div.appendChild(img);
       }
@@ -140,14 +143,13 @@ class Board {
     const secondsH2 = document.querySelector(".seconds");
     this.counter = setInterval(() => {
       seconds += 1;
-      console.log(seconds);
       secondsH2.textContent = "Time: " + seconds + "  sec";
     }, 1000);
   }
 
   static preview(time) {
     const cards = document.querySelectorAll(".card");
-    const imgs = document.querySelectorAll("img");
+    const imgs = document.querySelectorAll(".imgCard");
 
     cards.forEach((card) => {
       card.classList.add("nonClickable");
@@ -173,7 +175,7 @@ class Board {
     let moves = 0;
     let flag = 0;
     const cards = document.querySelectorAll(".card");
-    const images = document.querySelectorAll("img");
+    const images = document.querySelectorAll(".imgCard");
     const movesH2 = document.querySelector(".moves");
     images.forEach((image) => {
       image.addEventListener("click", function () {
@@ -210,7 +212,6 @@ class GameRules {
   static checkTwoCards() {
     let imagesMatch = document.querySelectorAll(".match");
     let cardsMatch = document.querySelectorAll(".matchCard");
-    console.log(cardsMatch);
     function removeClasses(flag) {
       imagesMatch.forEach((img) => {
         img.classList.remove("match");
