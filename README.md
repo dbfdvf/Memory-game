@@ -30,4 +30,4 @@ Classic memory game in the style of the dune series
 
 ## Demo
 
-Link: https://pankla10.github.io/Memory-game/
+Link: https://dbfdvf.github.io/Memory-game/
